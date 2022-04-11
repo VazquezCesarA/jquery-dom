@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("body").append(
+        '<form> <input id = "title" type="text"></input> <input id = "rating" type="text"></input> <button id="submit" type = "submit">Submit Me!</button> </form>'
+      );
+      $("#submit").on("click", (event) => {
+        event.preventDefault();
+        $("body").append(
+          `<div>Title: ${$("input").get(0).value}  Rating: ${
+            $("input").get(1).value
+          } ${'<button class="remove">Remove</button>'}</div>`
+        );
+        $(".remove").on("click", function (e) {
+          console.log(e.target.parentElement.remove());
+        });
+      });
+    </script>
+  </body>
+</html>
